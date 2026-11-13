@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Oficina Navalha | Barbearia de autor</title>
+<meta name="description" content="Conceito de site guiado pela rolagem: a cadeira gira, o cliente chega, o visagismo revela o corte.">
+<meta name="theme-color" content="#0b0908">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="loader" id="loader" role="status" aria-live="polite">
+  <p class="loader-brand">Oficina Navalha</p>
+  <p class="loader-count"><span id="loadNum">0</span><small>%</small></p>
+  <div class="loader-bar"><i id="loadBar"></i></div>
+</div>
+
+<header class="top">
+  <a class="logo" href="#">Oficina <em>Navalha</em></a>
+  <a class="btn btn-ghost" href="#agendar">Agendar</a>
+</header>
+
+<nav class="rail" aria-hidden="true">
+  <span data-rail="0"></span><span data-rail="1"></span><span data-rail="2"></span><span data-rail="3"></span><span data-rail="4"></span>
+</nav>
+
+<main>
+<div class="scroller" id="scroller">
+  <section class="stage" id="stage" aria-label="História do corte, controlada pela rolagem">
+    <div class="glow" id="glow"></div>
+
+    <div class="view" id="view">
+      <canvas id="cv"></canvas>
+
+      <svg class="vis" id="vis" viewBox="0 0 864 496" preserveAspectRatio="none" aria-hidden="true">
+        <g fill="none" stroke="#e0a458" stroke-width="1.4" stroke-linecap="round">
+          <ellipse class="d" data-t="0,.22" cx="440" cy="292" rx="112" ry="172" pathLength="1"/>
+          <line class="d" data-t=".2,.34" x1="440" y1="104" x2="440" y2="484" pathLength="1"/>
+          <line class="d" data-t=".3,.42" x1="290" y1="130" x2="600" y2="130" pathLength="1"/>
+          <line class="d" data-t=".36,.48" x1="290" y1="205" x2="600" y2="205" pathLength="1"/>
+          <line class="d" data-t=".42,.54" x1="290" y1="292" x2="600" y2="292" pathLength="1"/>
+          <line class="d" data-t=".48,.6" x1="290" y1="455" x2="600" y2="455" pathLength="1"/>
+          <path class="d" data-t=".58,.74" d="M330 238 Q440 262 550 238" pathLength="1"/>
+          <path class="d" data-t=".68,.84" d="M340 330 Q440 420 540 330" pathLength="1"/>
+        </g>
+        <g class="pts" fill="#0b0908" stroke="#e0a458" stroke-width="1.4">
+          <g class="pt" data-at=".2"><circle cx="440" cy="292" r="11"/><text x="440" y="296.5">1</text></g>
+          <g class="pt" data-at=".4"><circle cx="440" cy="130" r="11"/><text x="440" y="134.5">2</text></g>
+          <g class="pt" data-at=".62"><circle cx="550" cy="238" r="11"/><text x="550" y="242.5">3</text></g>
+          <g class="pt" data-at=".8"><circle cx="440" cy="455" r="11"/><text x="440" y="459.5">4</text></g>
+        </g>
+      </svg>
+    </div>
+
+    <div class="shade"></div>
+
+    <!-- Hero -->
+    <div class="act hero" data-seg="hold0" data-in="0" data-out="0.85">
+      <p class="kicker">Barbearia de autor</p>
+      <h1>A cadeira<br><em>espera.</em></h1>
+      <p class="lead">Um corte não começa na tesoura. Começa no olhar.</p>
+      <p class="hint"><i></i>Role para entrar</p>
+    </div>
+
+    <div class="act" data-seg="v1" data-in="0.12" data-out="0.9">
+      <p class="num">01</p>
+      <h2>O ritual<br>começa <em>vazio.</em></h2>
+      <p class="lead">Silêncio, luz quente e a promessa de uma transformação.</p>
+    </div>
+
+    <div class="act" data-seg="v2" data-in="0.15" data-out="0.9">
+      <p class="num">02</p>
+      <h2>Alguém<br>se <em>senta.</em></h2>
+      <p class="lead">Cada cliente chega com um rosto, uma história e uma ideia do que quer ser.</p>
+    </div>
+
+    <div class="act" data-seg="v3" data-in="0.1" data-out="0.9">
+      <p class="num">03</p>
+      <h2>Antes da tesoura,<br>o <em>olhar.</em></h2>
+      <p class="lead">Aproximamos para estudar o rosto inteiro.</p>
+    </div>
+
+    <!-- Visagismo -->
+    <div class="act vis-title" data-seg="vis" data-in="0.02" data-out="0.97">
+      <p class="num">Visagismo</p>
+      <h2>O desenho<br>do <em>rosto.</em></h2>
+    </div>
+
+    <ol class="notes" id="notes">
+      <li data-at=".2"><b>1</b><span>Forma oval alongada</span><small>Aceita volume no topo e laterais limpas.</small></li>
+      <li data-at=".4"><b>2</b><span>Terços equilibrados</span><small>Testa livre para um topete texturizado.</small></li>
+      <li data-at=".62"><b>3</b><span>Maçãs e mandíbula</span><small>Degradê marca a estrutura sem endurecer.</small></li>
+      <li data-at=".8"><b>4</b><span>Linha do queixo</span><small>Barba contornada fecha o desenho.</small></li>
+    </ol>
+
+    <div class="act" data-seg="v4" data-in="0.2" data-out="0.95">
+      <p class="num">04</p>
+      <h2>O <em>corte.</em></h2>
+      <p class="lead">Tesoura, pente e máquina seguem o desenho. Nada é aleatório.</p>
+    </div>
+
+    <div class="act" data-seg="v5" data-in="0.25" data-out="1.2">
+      <p class="num">05</p>
+      <h2>O mesmo rosto.<br>Agora com <em>intenção.</em></h2>
+      <p class="lead">Seu corte, desenhado por quem olha antes de cortar.</p>
+      <a class="btn" href="#agendar">Agende seu horário</a>
+    </div>
+  </section>
+</div>
+
+<section class="end" id="agendar">
+  <p class="kicker">Oficina Navalha</p>
+  <h2>Sente-se.<br><em>Nós cuidamos do resto.</em></h2>
+  <a class="btn" href="#">Agendar horário</a>
+  <p class="fine">Projeto de portfólio. Conceito visual, marca e personagem fictícios.</p>
+</section>
+</main>
+
+<noscript><p style="padding:2rem;color:#f1e6d2">Este site precisa de JavaScript para a animação de rolagem.</p></noscript>
+<script src="app.js"></script>
+</body>
+</html>
